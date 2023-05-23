@@ -1,7 +1,13 @@
 import { resolve } from "node:path";
 import { defineConfig } from "vite";
+import viteChecker from 'vite-plugin-checker';
 
 export default defineConfig({
+  plugins: [
+    viteChecker({
+      typescript: true,
+    }),
+  ],
   build: {
     rollupOptions: {
       input: {
