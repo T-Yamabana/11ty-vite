@@ -5,6 +5,13 @@ html(lang="ja")
     link(rel="icon", type="image/svg+xml", href="/vite.svg")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title Vite + TS
+
+  if env === "production" && manifest
+    each cssPath in manifest["src/scripts/main.ts"].css
+      link(rel="stylesheet", href=`/${cssPath}`)
+    script(type="module", src=`/${manifest["src/scripts/main.ts"].file}`)
+
+  if env === "development"
     script(type="module", src="http://localhost:5173/@vite/client")
     script(type="module", src="http://localhost:5173/src/scripts/main.ts")
   body

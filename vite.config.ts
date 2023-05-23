@@ -13,5 +13,7 @@ export default defineConfig({
         entryFileNames: "assets/[name].js",
       },
     },
+    emptyOutDir: true,
+    manifest: true,
   },
 });
