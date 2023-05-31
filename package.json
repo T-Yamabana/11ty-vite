@@ -3,7 +3,9 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite & cross-env ELEVENTY_ENV=development eleventy --serve --incremental",
+    "dev": "run-p -r dev:vite dev:11ty",
+    "dev:vite": "vite",
+    "dev:11ty": "cross-env ELEVENTY_ENV=development eleventy --serve --incremental",
     "build": "tsc && vite build && cross-env ELEVENTY_ENV=production eleventy && rimraf dist/manifest.json",
     "preview": "vite preview"
   },
@@ -11,6 +13,7 @@
     "@11ty/eleventy": "^2.0.1",
     "@11ty/eleventy-server-browsersync": "^1.0.2",
     "cross-env": "^7.0.3",
+    "npm-run-all": "^4.1.5",
     "prettier": "^2.8.8",
     "rimraf": "^5.0.1",
     "sass": "^1.62.1",
