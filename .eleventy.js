@@ -1,4 +1,5 @@
 const httpProxy = require("http-proxy");
+const prettier = require('prettier');
 
 module.exports = function(eleventyConfig) {
 
@@ -12,6 +13,16 @@ module.exports = function(eleventyConfig) {
         });
       },
     },
+  });
+
+  eleventyConfig.addTransform('formatHTML', (content, outputPath) => {
+    if (outputPath.endsWith('.html')) {
+      return prettier.format(content, {
+        parser: 'html',
+        printWidth: 1000,
+      });
+    }
+    return content;
   });
 
   return {
