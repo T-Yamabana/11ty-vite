@@ -4,12 +4,13 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite & ELEVENTY_ENV=development eleventy --serve --incremental",
-    "build": "tsc && vite build && ELEVENTY_ENV=production eleventy",
+    "build": "tsc && vite build && ELEVENTY_ENV=production eleventy && rimraf dist/manifest.json",
     "preview": "vite preview"
   },
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1",
     "@11ty/eleventy-server-browsersync": "^1.0.2",
+    "rimraf": "^5.0.1",
     "sass": "^1.62.1",
     "typescript": "^5.0.2",
     "vite": "^4.3.2",
